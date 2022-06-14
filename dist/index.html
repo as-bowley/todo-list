@@ -8,24 +8,63 @@
 <script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script></head>
 <body>
 
-  <div class="container">
-    <label for="title">Title</label>
-    <input type="text" name="title" id="title">
-    <br>
-    <label for="desc">Description</label>
-    <input type="text" name="desc" id="desc">
-    <br>
-    <label for="priority">Priority</label>
-    <select name="priority" id="priority">
-      <option value="high">High</option>
-      <option value="medium">Medium</option>
-      <option value="low">Low</option>
-    </select>
-    
-    <br>
-    <label for="date">Date</label>
-    <input type="text" name="date" id="date">
+<div id="listContainer">
+  <div id="longListContainer">
+    <div id="longform">
+      <label for="longTitleForm">Title</label>
+      <input type="text" name="title" id="longTitleForm">
+      <br>
+      <label for="longDescForm">Description</label>
+      <input type="text" name="desc" id="longDescForm">
+      <br>
+      <label for="longPriorityForm">Priority</label>
+      <select name="priority" id="longPriorityForm">
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+      <br>
+      <label for="longDateForm">Date</label>
+      <input type="date" name="date" id="longDateForm">
+      <button id="longSubmit">Submit</button>
+    </div>
+    <div id="longdisplay"></div>
   </div>
+
+  <div id="shortListContainer">
+    <div id="shortform">
+      <label for="shortTitleForm">Title</label>
+      <input type="text" name="title" id="shortTitleForm">
+      <br>
+      <label for="shortDescForm">Description</label>
+      <input type="text" name="desc" id="shortDescForm">
+      <br>
+      <label for="shortPriorityForm">Priority</label>
+      <select name="priority" id="shortPriorityForm">
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+      <br>
+      <label for="shortDateForm">Date</label>
+      <input type="date" name="date" id="shortDateForm">
+      <button id="shortSubmit">Submit</button>
+    </div>
+    <div id="shortdisplay"></div>
+  </div>
+
+
+  <div id="shoppingListContainer">
+    <div id="shoppingform">
+      <label for="shoppingTitleForm">Title</label>
+      <input type="text" name="title" id="shoppingTitleForm">
+      <br>
+      <button id="shoppingSubmit">Submit</button>
+    </div>
+    <div id="shoppingdisplay"></div>
+  </div>
+
+</div>
   
 </body>
 </html>

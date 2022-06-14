@@ -1,0 +1,11 @@
+body {
+  background-color: #3a3a3a;
+  color: white;
+}
+
+#listContainer {
+  display: grid;
+  width: 80vh;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
