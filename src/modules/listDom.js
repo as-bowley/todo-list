@@ -1,5 +1,5 @@
 import { TodoListLong, TodoListShort, ShoppingList } from "./listClasses";
-import { longListGet, longListSet, longListRemove, shortListSet, shortListGet, shortListRemove, shoppingListSet, shoppingListGet, shoppingListRemove } from './listArrays';
+import { longListModule, shortListModule, shoppingListModule } from "./listArrays";
 
 export function handleSubmitLong() {
 
@@ -9,7 +9,8 @@ export function handleSubmitLong() {
   const longDate = document.getElementById('longDateForm').value;
 
   const newListItem = new TodoListLong(longTitle, longDescription, longPriority, longDate);
-  longListSet(newListItem);
+  longListModule.longListSet(newListItem);
+  longListModule.long
   displayLongList();
   resetFormLong();
 }
@@ -24,7 +25,7 @@ function resetFormLong() {
 export function displayLongList() {
 
   const displayDiv = document.getElementById('longdisplay');
-  const list = longListGet();
+  const list = longListModule.longListGet();
   displayDiv.innerHTML = '';
   
   for (let i = 0; i < list.length; i++) {
@@ -33,6 +34,18 @@ export function displayLongList() {
 
     const title = document.createElement('h4');
     title.innerText = `${list[i].listItem.title}`;
+    const radio = document.createElement('input');
+    radio.setAttribute('type', 'radio');
+    radio.setAttribute('id', i);
+    radio.addEventListener('click', function() {
+      if(this.classList.contains('complete')) {
+        radio.classList.remove('complete');
+        this.checked = false;
+      }
+      else {
+        radio.classList.add('complete');
+      }
+    });
     const description = document.createElement('p');
     description.innerText = `${list[i].listItem.desc}`;
     const priority = document.createElement('div');
@@ -42,11 +55,12 @@ export function displayLongList() {
     const deleteButton = document.createElement('button');
     deleteButton.setAttribute('id', i);
     deleteButton.addEventListener('click', function() {
-      longListRemove(this.id);
+      longListModule.longListRemove(this.id);
     })
     deleteButton.innerText = "Delete";
 
     longListDiv.appendChild(title);
+    longListDiv.appendChild(radio);
     longListDiv.appendChild(description);
     longListDiv.appendChild(priority);
     longListDiv.appendChild(date);
@@ -64,7 +78,7 @@ export function handleSubmitShort() {
   const shortDate = document.getElementById('shortDateForm').value;
 
   const newListItem = new TodoListShort(shortTitle, shortDescription, shortPriority, shortDate);
-  shortListSet(newListItem);
+  shortListModule.shortListSet(newListItem);
   displayShortList();
   resetFormShort();
 }
@@ -79,7 +93,7 @@ function resetFormShort() {
 export function displayShortList() {
 
   const displayDiv = document.getElementById('shortdisplay');
-  const list = shortListGet();
+  const list = shortListModule.shortListGet();
   displayDiv.innerHTML = '';
   
   for (let i = 0; i < list.length; i++) {
@@ -88,6 +102,18 @@ export function displayShortList() {
 
     const title = document.createElement('h4');
     title.innerText = `${list[i].listItem.title}`;
+    const radio = document.createElement('input');
+    radio.setAttribute('type', 'radio');
+    radio.setAttribute('id', i);
+    radio.addEventListener('click', function() {
+      if(this.classList.contains('complete')) {
+        radio.classList.remove('complete');
+        this.checked = false;
+      }
+      else {
+        radio.classList.add('complete');
+      }
+    });
     const description = document.createElement('p');
     description.innerText = `${list[i].listItem.desc}`;
     const priority = document.createElement('div');
@@ -97,11 +123,12 @@ export function displayShortList() {
     const deleteButton = document.createElement('button');
     deleteButton.setAttribute('id', i);
     deleteButton.addEventListener('click', function() {
-      shortListRemove(this.id);
+      shortListModule.shortListRemove(this.id);
     })
     deleteButton.innerText = "Delete";
 
     shortListDiv.appendChild(title);
+    shortListDiv.appendChild(radio);
     shortListDiv.appendChild(description);
     shortListDiv.appendChild(priority);
     shortListDiv.appendChild(date);
@@ -116,7 +143,7 @@ export function handleSubmitShopping() {
   const shoppingTitle = document.getElementById('shoppingTitleForm').value;
 
   const newListItem = new ShoppingList(shoppingTitle);
-  shoppingListSet(newListItem);
+  shoppingListModule.shoppingListSet(newListItem);
   displayShoppingList();
   resetFormShopping();
 }
@@ -128,7 +155,7 @@ function resetFormShopping() {
 export function displayShoppingList() {
 
   const displayDiv = document.getElementById('shoppingdisplay');
-  const list = shoppingListGet();
+  const list = shoppingListModule.shoppingListGet();
   displayDiv.innerHTML = '';
   
   for (let i = 0; i < list.length; i++) {
@@ -137,15 +164,28 @@ export function displayShoppingList() {
 
     const title = document.createElement('h4');
     title.innerText = `${list[i].item}`;
+    const radio = document.createElement('input');
+    radio.setAttribute('type', 'radio');
+    radio.setAttribute('id', i);
+    radio.addEventListener('click', function() {
+      if(this.classList.contains('complete')) {
+        radio.classList.remove('complete');
+        this.checked = false;
+      }
+      else {
+        radio.classList.add('complete');
+      }
+    });
     const deleteButton = document.createElement('button');
     deleteButton.setAttribute('id', i);
     deleteButton.addEventListener('click', function() {
-      shoppingListRemove(this.id);
+      shoppingListModule.shoppingListRemove(this.id);
     })
     deleteButton.innerText = "Delete";
 
     shoppingListDiv.appendChild(title);
     shoppingListDiv.appendChild(deleteButton);
+    shoppingListDiv.appendChild(radio);
 
     displayDiv.appendChild(shoppingListDiv);
   }

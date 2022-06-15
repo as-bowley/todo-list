@@ -1,48 +1,76 @@
 import { displayLongList, displayShortList, displayShoppingList } from "./listDom";
 
-const longList = [];
-const shortList = [];
 const shoppingList = [];
 
-export const longListSet = (listItem) => {
-  longList.push({listItem});
-}
+export const longListModule = (function() {
+  const _longList = [];
 
-export const longListGet = () => {
-  const longListCopy = [...longList];
-  return longListCopy;
-}
+  const longListSet = (listItem) => {
+    _longList.push({listItem});
+  }
 
-export const longListRemove = (i) => {
-  longList.splice(i, 1);
-  displayLongList();
-}
+  const longListGet = () => {
+    const longListCopy = [..._longList];
+    return longListCopy;
+  }
 
-export const shortListSet = (listItem) => {
-  shortList.push({listItem});
-}
+  const longListRemove = (i) => {
+    _longList.splice(i, 1);
+    displayLongList();
+  } 
 
-export const shortListGet = () => {
-  const shortListCopy = [...shortList];
-  return shortListCopy;
-}
+  return {
+    longListSet: longListSet,
+    longListGet: longListGet,
+    longListRemove: longListRemove
+  }
+})();
 
-export const shortListRemove = (i) => {
-  shortList.splice(i, 1);
-  displayShortList();
-}
+export const shortListModule = (function() {
+  const _shortList = [];
 
-export const shoppingListSet = (listItem) => {
-  shoppingList.push(listItem);
-  console.log(shoppingListGet());
-}
+  const shortListSet = (listItem) => {
+    _shortList.push({listItem});
+  }
 
-export const shoppingListGet = () => {
-  const shoppingListCopy = [...shoppingList];
-  return shoppingListCopy;
-}
+  const shortListGet = () => {
+    const shortListCopy = [..._shortList];
+    return shortListCopy;
+  }
 
-export const shoppingListRemove = (i) => {
-  shoppingList.splice(i, 1);
-  displayShoppingList();
-}
+  const shortListRemove = (i) => {
+    _shortList.splice(i, 1);
+    displayShortList();
+  }
+
+  return {
+    shortListSet: shortListSet,
+    shortListGet: shortListGet,
+    shortListRemove: shortListRemove
+  }
+})();
+
+export const shoppingListModule = (function(){
+  const _shoppingList = [];
+
+  const shoppingListSet = (listItem) => {
+    _shoppingList.push(listItem);
+    console.log(shoppingListGet());
+  }
+
+  const shoppingListGet = () => {
+    const shoppingListCopy = [..._shoppingList];
+    return shoppingListCopy;
+  }
+
+  const shoppingListRemove = (i) => {
+    _shoppingList.splice(i, 1);
+    displayShoppingList();
+  }
+
+  return {
+    shoppingListSet: shoppingListSet,
+    shoppingListGet: shoppingListGet,
+    shoppingListRemove: shoppingListRemove
+  }
+})();
