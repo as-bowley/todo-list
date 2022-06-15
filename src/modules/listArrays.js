@@ -1,10 +1,11 @@
+import { displayLongList, displayShortList, displayShoppingList } from "./listDom";
+
 const longList = [];
 const shortList = [];
 const shoppingList = [];
 
 export const longListSet = (listItem) => {
   longList.push({listItem});
-  console.log(longList);
 }
 
 export const longListGet = () => {
@@ -12,9 +13,13 @@ export const longListGet = () => {
   return longListCopy;
 }
 
+export const longListRemove = (i) => {
+  longList.splice(i, 1);
+  displayLongList();
+}
+
 export const shortListSet = (listItem) => {
   shortList.push({listItem});
-  console.log(shortList);
 }
 
 export const shortListGet = () => {
@@ -22,9 +27,14 @@ export const shortListGet = () => {
   return shortListCopy;
 }
 
+export const shortListRemove = (i) => {
+  shortList.splice(i, 1);
+  displayShortList();
+}
+
 export const shoppingListSet = (listItem) => {
-  shoppingList.push({listItem});
-  console.log(shoppingList);
+  shoppingList.push(listItem);
+  console.log(shoppingListGet());
 }
 
 export const shoppingListGet = () => {
@@ -32,3 +42,7 @@ export const shoppingListGet = () => {
   return shoppingListCopy;
 }
 
+export const shoppingListRemove = (i) => {
+  shoppingList.splice(i, 1);
+  displayShoppingList();
+}
