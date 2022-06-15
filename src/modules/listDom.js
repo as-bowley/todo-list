@@ -10,7 +10,6 @@ export function handleSubmitLong() {
 
   const newListItem = new TodoListLong(longTitle, longDescription, longPriority, longDate);
   longListModule.longListSet(newListItem);
-  longListModule.long
   displayLongList();
   resetFormLong();
 }
