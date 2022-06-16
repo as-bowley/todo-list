@@ -19,7 +19,7 @@ body {
   grid-area: navbar;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   background-color: #373D46;
   height: 100vh;
   min-width: 300px;
@@ -28,6 +28,7 @@ body {
     flex-direction: column;
     align-items: center;
     margin-top: 70px;
+    margin-bottom: auto;
     #logo {
       background: url(./img/ticklogo.svg);
       background-size: contain;
@@ -62,6 +63,9 @@ body {
       justify-items: center;
       cursor: pointer;
       border: none;
+      &:hover {
+        background-color: #a6bad4;
+      }
       #button-plus-img {
         background: url(./img/plusbutton.svg);
         height: 40px;
@@ -148,7 +152,315 @@ body {
   }
 }
 
-#longform, #shortform, #shoppingform {
-  position: fixed;
+#longform {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%) scale(0);
+  background-color: #3E5C76;
+  color: white;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  label {
+    line-height: 100%;
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+  input {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 20px;
+    padding: 0 8px;
+    border: 1px solid rgba(254,254,254,.3);
+    border-radius: 5px;
+    padding: 0;
+  }
+  select {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 20px;
+    padding: 0 8px;
+    border: 1px solid rgba(254,254,254,.3);
+    border-radius: 5px;
+  }
+  button {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    height: 40px;
+    padding: 0;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 400;
+    &:hover {
+      background-color: #a6bad4;
+    }
+  }
+}
+
+#shortform {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: #748CAB;
+  color: white;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  label {
+    line-height: 100%;
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+  input {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 20px;
+    padding: 0 8px;
+    border: 1px solid rgba(254,254,254,.3);
+    border-radius: 5px;
+    padding: 0;
+  }
+  select {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 20px;
+    padding: 0 8px;
+    border: 1px solid rgba(254,254,254,.3);
+    border-radius: 5px;
+  }
+  button {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    height: 40px;
+    padding: 0;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 400;
+    &:hover {
+      background-color: #a6bad4;
+    }
+  }
+}
+
+#shoppingform {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: #B76D68;
+  color: white;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  label {
+    line-height: 100%;
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+  input {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 20px;
+    padding: 0 8px;
+    border: 1px solid rgba(254,254,254,.3);
+    border-radius: 5px;
+    padding: 0;
+  }
+  button {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    height: 40px;
+    padding: 0;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 400;
+    &:hover {
+      background-color: #a6bad4;
+    }
+  }
+}
+
+.longListItem, .shortListItem {
+  margin: 20px;
+  padding: 10px;
+  background-color: white;
+  font-size: 12px;
+  height: 180px;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 1fr 1fr 0.5fr;;
+  grid-template-areas: 
+  "radio main priority"
+  ". desc ."
+  ". date delete";
+  align-items: center;
+  .list-item-title {
+    grid-area: main;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: underline;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+  .list-item-radio {
+    grid-area: radio;
+    justify-self: center;
+    padding-right: 5px;
+  }
+  .list-item-desc {
+    grid-area: desc;
+    align-self: baseline;
+    font-weight: 400;
+    line-height: 13px;
+    font-size: 13px;
+    margin-top: 0;
+  }
+  .list-item-prio {
+    grid-area: priority;
+    justify-self: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    .list-item-prio-div {
+      background-color: #FA9F9F;
+      color: #3E5C76;
+      padding: 3px;
+      font-weight: 700;
+    }
+  }
+  .list-item-date {
+    grid-area: date;
+    background-color: #C9D9F2;
+    color: #3E5C76;
+    font-weight: 600;
+    line-height: 13px;
+    padding: 5px;
+    margin-right: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+  .list-item-delete {
+    grid-area: delete;
+    background: url(./img/delete.svg);
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #373D46 ;
+    cursor: pointer;
+    border: none;
+    justify-self: center;
+  }
+}
+
+.longListItem.complete {
+  opacity: 0.2;
+}
+
+.shortListItem.complete {
+  opacity: 0.2;
+}
+
+.shoppingListItem {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  h4 {
+    margin-left: 10px;
+    color: #373D46;
+    font-weight: 400;
+  }
+  button {
+    margin-left: auto;
+    background: url(./img/delete.svg);
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #373D46 ;
+    cursor: pointer;
+    border: none;
+    justify-self: center;
+  }
+  &:first-child {
+    margin-top: 20px;
+  }
+}
+
+.shoppingListItem.complete {
+  opacity: 0.2;
+}
+
+.modalButtons {
+  display: grid;
+  grid-template-rows: auto;
+  justify-content: center;
+  transform: translate(0%, 0%) scale(0);
+  transition: 250ms ease-in-out;
+  z-index: 9;
+  bottom: 8%;
+  left: 0.7%;
+  button {
+    min-width: 280px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 20px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    &:hover {
+      background-color: #a6bad4;
+    }
+  }
+}
+.active {
+  transform: translate(0%, 0%) scale(1);
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+}
+
+#overlay.activeOverlay {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#longform.activeLongForm {
+  transform: translate(-50%, -50%) scale(1);
+  transition: 250ms ease-in-out;
+  z-index: 10;
+}
+
+#shortform.activeShortForm {
+  transform: translate(-50%, -50%) scale(1);
+  transition: 250ms ease-in-out;
+  z-index: 10;
+}
+
+#shoppingform.activeShoppingForm {
+  transform: translate(-50%, -50%) scale(1);
+  transition: 250ms ease-in-out;
+  z-index: 10;
 }

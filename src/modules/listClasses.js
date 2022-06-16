@@ -1,5 +1,5 @@
 export class TodoListLong {
-  constructor(title, desc, priority, date, index) {
+  constructor(title, desc, priority, date) {
     this.title = title;
     this.desc = desc;
     this.priority = priority;
