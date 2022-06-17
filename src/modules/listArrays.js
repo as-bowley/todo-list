@@ -5,6 +5,7 @@ export const longListModule = (function() {
 
   const longListSet = (listItem) => {
     _longList.push(listItem);
+    localStorage.setItem("longListArray", JSON.stringify(longListGet()));
   }
 
   const longListGet = () => {
@@ -14,13 +15,23 @@ export const longListModule = (function() {
 
   const longListRemove = (i) => {
     _longList.splice(i, 1);
+    localStorage.removeItem("longListArray");
+    localStorage.setItem("longListArray", JSON.stringify(longListGet()));
     displayLongList();
   } 
+
+  const checkLocal = () => {
+    if (localStorage.hasOwnProperty('longListArray') == true) {
+      const localArray = JSON.parse(localStorage.getItem('longListArray'));
+      _longList.splice(0, _longList.length, ...localArray);
+    }
+  }
 
   return {
     longListSet: longListSet,
     longListGet: longListGet,
-    longListRemove: longListRemove
+    longListRemove: longListRemove,
+    checkLocal: checkLocal
   }
 })();
 
@@ -29,6 +40,7 @@ export const shortListModule = (function() {
 
   const shortListSet = (listItem) => {
     _shortList.push(listItem);
+    localStorage.setItem("shortListArray", JSON.stringify(shortListGet()));
   }
 
   const shortListGet = () => {
@@ -38,13 +50,23 @@ export const shortListModule = (function() {
 
   const shortListRemove = (i) => {
     _shortList.splice(i, 1);
+    localStorage.removeItem("shortListArray");
+    localStorage.setItem("shortListArray", JSON.stringify(shortListGet()));
     displayShortList();
+  }
+
+  const checkLocal = () => {
+    if (localStorage.hasOwnProperty('shortListArray') == true) {
+      const localArray = JSON.parse(localStorage.getItem('shortListArray'));
+      _shortList.splice(0, _shortList.length, ...localArray);
+    }
   }
 
   return {
     shortListSet: shortListSet,
     shortListGet: shortListGet,
-    shortListRemove: shortListRemove
+    shortListRemove: shortListRemove,
+    checkLocal: checkLocal
   }
 })();
 
@@ -53,7 +75,7 @@ export const shoppingListModule = (function(){
 
   const shoppingListSet = (listItem) => {
     _shoppingList.push(listItem);
-    console.log(shoppingListGet());
+    localStorage.setItem("shoppingListArray", JSON.stringify(shoppingListGet()));
   }
 
   const shoppingListGet = () => {
@@ -63,12 +85,22 @@ export const shoppingListModule = (function(){
 
   const shoppingListRemove = (i) => {
     _shoppingList.splice(i, 1);
+    localStorage.removeItem("shoppingListArray");
+    localStorage.setItem("shoppingListArray", JSON.stringify(shoppingListGet()));
     displayShoppingList();
+  }
+
+  const checkLocal = () => {
+    if (localStorage.hasOwnProperty('shoppingListArray') == true) {
+      const localArray = JSON.parse(localStorage.getItem('shoppingListArray'));
+      _shoppingList.splice(0, _shoppingList.length, ...localArray);
+    }
   }
 
   return {
     shoppingListSet: shoppingListSet,
     shoppingListGet: shoppingListGet,
-    shoppingListRemove: shoppingListRemove
+    shoppingListRemove: shoppingListRemove,
+    checkLocal: checkLocal
   }
 })();

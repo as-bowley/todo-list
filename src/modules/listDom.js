@@ -1,5 +1,6 @@
 import { TodoListLong, TodoListShort, ShoppingList } from "./listClasses";
 import { longListModule, shortListModule, shoppingListModule } from "./listArrays";
+import { format, parse, parseISO } from "date-fns";
 
 export function handleSubmitLong() {
 
@@ -30,6 +31,8 @@ export function displayLongList() {
   displayDiv.innerHTML = '';
   
   for (let i = 0; i < list.length; i++) {
+    const formattedDate = format(parseISO(list[i].date), "MMMM do y");
+
     const longListDiv = document.createElement('div');
     longListDiv.classList.add('longListItem');
 
@@ -71,7 +74,7 @@ export function displayLongList() {
 
     const date = document.createElement('p');
     date.classList.add('list-item-date');
-    date.innerText = `target date: ${list[i].date}`;
+    date.innerText = `target date: ${formattedDate}`;
     const deleteButton = document.createElement('button');
     deleteButton.setAttribute('id', i);
     deleteButton.classList.add('list-item-delete');
@@ -112,12 +115,13 @@ function resetFormShort() {
 }
 
 export function displayShortList() {
-
   const displayDiv = document.getElementById('shortdisplay');
   const list = shortListModule.shortListGet();
   displayDiv.innerHTML = '';
   
   for (let i = 0; i < list.length; i++) {
+    const formattedDate = format(parseISO(list[i].date), "MMMM do y");
+
     const shortListDiv = document.createElement('div');
     shortListDiv.classList.add('shortListItem');
 
@@ -159,7 +163,7 @@ export function displayShortList() {
 
     const date = document.createElement('p');
     date.classList.add('list-item-date');
-    date.innerText = `target date: ${list[i].date}`;
+    date.innerText = `target date: ${formattedDate}`;
     const deleteButton = document.createElement('button');
     deleteButton.setAttribute('id', i);
     deleteButton.classList.add('list-item-delete');

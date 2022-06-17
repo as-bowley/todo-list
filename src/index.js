@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import "./style.scss";
 import { handleSubmitLong, handleSubmitShort, handleSubmitShopping, openFormSelection, handleLongForm, displayLongList, displayShortList, displayShoppingList, closeModalLong, handleShortForm, closeModalShort, handleShoppingForm, closeModalShopping } from './modules/listDom';
-import { longListModule } from './modules/listArrays';
+import { longListModule, shortListModule, shoppingListModule } from './modules/listArrays';
 
 const longSubmit = document.getElementById('longSubmit').addEventListener('click', handleSubmitLong);
 const shortSubmit = document.getElementById('shortSubmit').addEventListener('click', handleSubmitShort);
@@ -13,6 +13,10 @@ const shoppingTermFormOpen = document.getElementById('shopping-form-button').add
 const overlayLong = document.getElementById('overlay').addEventListener('click', closeModalLong);
 const overlayShort = document.getElementById('overlay').addEventListener('click', closeModalShort);
 const overlayShoppping = document.getElementById('overlay').addEventListener('click', closeModalShopping);
+
+longListModule.checkLocal();
+shortListModule.checkLocal();
+shoppingListModule.checkLocal();
 
 displayLongList();
 displayShortList();
