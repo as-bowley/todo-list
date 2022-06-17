@@ -23,6 +23,7 @@ export function closeModalShort() {
   shortTermForm.classList.remove('activeShortForm');
   overlay.classList.remove('activeOverlay');
   resetEditItems();
+  resetFormShort();
 }
 
 export function handleSubmitShort() {

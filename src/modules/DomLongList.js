@@ -23,6 +23,7 @@ export function closeModalLong() {
   longTermForm.classList.remove('activeLongForm');
   overlay.classList.remove('activeOverlay');
   resetEditItems();
+  resetFormLong();
 }
 
 export function handleSubmitLong() {

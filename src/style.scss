@@ -52,8 +52,8 @@ body {
     justify-content: center;
     margin-bottom: 30px;
     button {
-      display: grid;
-      grid-template-columns: 1fr 3fr;
+      display: flex;
+      justify-content: space-around;
       width: 280px;
       height: 60px;
       border-radius: 10px;
@@ -70,6 +70,16 @@ body {
         background: url(./img/plusbutton.svg);
         height: 40px;
         width: 40px;
+      }
+      #button-border {
+        border-right: 1px solid #373D46;
+        height: 40px;
+        width: 0px;
+      }
+      #up-arrow {
+        background: url(./img/up-arrow.png);
+        height: 24px;
+        width: 24px;
       }
     }
   }
@@ -202,6 +212,19 @@ body {
       background-color: #a6bad4;
     }
   }
+  #longDescForm {
+    height: 200px;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 0 8px;
+    border: 1px solid rgba(254,254,254,.3);
+    border-radius: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;  
+  }
 }
 
 #shortform {
@@ -256,6 +279,19 @@ body {
   }
   #id-holder {
     visibility: hidden;
+  }
+  #shortDescForm {
+    height: 200px;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 0 8px;
+    border: 1px solid rgba(254,254,254,.3);
+    border-radius: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;  
   }
 }
 
@@ -476,18 +512,18 @@ body {
 
 #longform.activeLongForm {
   transform: translate(-50%, -50%) scale(1);
-  transition: 250ms ease-in-out;
+  transition: transform 0.3s ease-in-out 0.2s;
   z-index: 10;
 }
 
 #shortform.activeShortForm {
   transform: translate(-50%, -50%) scale(1);
-  transition: 250ms ease-in-out;
+  transition: transform 0.3s ease-in-out 0.2s;
   z-index: 10;
 }
 
 #shoppingform.activeShoppingForm {
   transform: translate(-50%, -50%) scale(1);
-  transition: 250ms ease-in-out;
+  transition: transform 0.3s ease-in-out 0.2s;
   z-index: 10;
 }
