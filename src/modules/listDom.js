@@ -58,7 +58,14 @@ export function displayLongList() {
     const priority = document.createElement('div');
     priority.classList.add('list-item-prio');
     const priorityDiv = document.createElement('div');
-    priorityDiv.classList.add('list-item-prio-div')
+    priorityDiv.classList.add('list-item-prio-div');
+    if (list[i].priority == 'high') {
+      priorityDiv.classList.add('high-priority');
+    } else if (list[i].priority == 'medium') {
+      priorityDiv.classList.add('medium-priority');
+    } else {
+      priorityDiv.classList.add('low-priority');
+    };
     priorityDiv.innerText = `${list[i].priority}`;
     priority.appendChild(priorityDiv);
 
@@ -140,6 +147,13 @@ export function displayShortList() {
     priority.classList.add('list-item-prio');
     const priorityDiv = document.createElement('div');
     priorityDiv.classList.add('list-item-prio-div')
+    if (list[i].priority == 'high') {
+      priorityDiv.classList.add('high-priority');
+    } else if (list[i].priority == 'medium') {
+      priorityDiv.classList.add('medium-priority');
+    } else {
+      priorityDiv.classList.add('low-priority');
+    };
     priorityDiv.innerText = `${list[i].priority}`;
     priority.appendChild(priorityDiv);
 

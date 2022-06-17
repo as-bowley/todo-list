@@ -25,7 +25,7 @@ export const longListModule = (function() {
 })();
 
 export const shortListModule = (function() {
-  const _shortList = [{title: 'pay phone bill', desc: 'Make payment to vodafone..', priority: 'medium', date: '2022-06-24'}, {title: 'visit liam', desc: "Drop off gifts at liam's house.", priority: 'high', date: '2022-06-27'}];
+  const _shortList = [{title: 'pay phone bill', desc: 'Make payment to vodafone..', priority: 'medium', date: '2022-06-24'}, {title: 'visit liam', desc: "Drop off gifts at liam's house.", priority: 'low', date: '2022-06-27'}];
 
   const shortListSet = (listItem) => {
     _shortList.push(listItem);

@@ -332,10 +332,18 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     .list-item-prio-div {
-      background-color: #FA9F9F;
       color: #3E5C76;
       padding: 3px;
       font-weight: 700;
+    }
+    .list-item-prio-div.high-priority {
+      background-color: #FA9F9F;
+    }
+    .list-item-prio-div.medium-priority {
+      background-color: #FDF9A3;
+    }
+    .list-item-prio-div.low-priority {
+      background-color: #DDFDCD;
     }
   }
   .list-item-date {
@@ -351,10 +359,10 @@ body {
   }
   .list-item-delete {
     grid-area: delete;
-    background: url(./img/delete.svg);
+    background: url(./img/delete-button4.png);
     background-size: contain;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     border: 1px solid #373D46 ;
     cursor: pointer;
     border: none;
@@ -384,7 +392,7 @@ body {
   }
   button {
     margin-left: auto;
-    background: url(./img/delete.svg);
+    background: url(./img/delete-button4.png);
     background-size: contain;
     width: 20px;
     height: 20px;
