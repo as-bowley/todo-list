@@ -1,5 +1,6 @@
 import { ShoppingList } from "./Classes";
 import { shoppingListModule } from "./Arrays";
+import { closeFormSelection } from "./Dom";
 
 export function handleSubmitShopping() {
 
@@ -68,6 +69,7 @@ export function handleShoppingForm() {
   } else {
     shoppingTermForm.classList.add('activeShoppingForm');
     overlay.classList.add('activeOverlay');
+    closeFormSelection();
   }
 }
 

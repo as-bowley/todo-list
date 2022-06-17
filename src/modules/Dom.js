@@ -7,6 +7,11 @@ export function openFormSelection() {
   }
 }
 
+export function closeFormSelection() {
+  const formButtons = document.querySelector('.modalButtons');
+  formButtons.classList.remove('active');
+}
+
 
 
 

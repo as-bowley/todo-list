@@ -1,6 +1,7 @@
 import { TodoListShort } from "./Classes";
 import { shortListModule } from "./Arrays";
 import { format, parseISO } from "date-fns";
+import { closeFormSelection } from "./Dom";
 
 export function handleShortForm() {
   const shortTermForm = document.querySelector('#shortform');
@@ -9,9 +10,10 @@ export function handleShortForm() {
   if (shortTermForm.classList.contains('activeShortForm')) {
     shortTermForm.classList.remove('activeShortForm');
     closeModalShort();
-  } else {
+    } else {
     shortTermForm.classList.add('activeShortForm');
     overlay.classList.add('activeOverlay');
+    closeFormSelection();
   }
 }
 

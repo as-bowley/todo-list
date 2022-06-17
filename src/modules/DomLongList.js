@@ -1,6 +1,7 @@
 import { TodoListLong } from "./Classes";
 import { longListModule } from "./Arrays";
 import { format, parseISO } from "date-fns";
+import { closeFormSelection } from "./Dom";
 
 export function handleLongForm() {
   const longTermForm = document.querySelector('#longform');
@@ -12,6 +13,7 @@ export function handleLongForm() {
   } else {
     longTermForm.classList.add('activeLongForm');
     overlay.classList.add('activeOverlay');
+    closeFormSelection();
   }
 }
 
