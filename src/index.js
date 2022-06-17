@@ -1,7 +1,10 @@
 import _ from 'lodash';
 import "./style.scss";
-import { handleSubmitLong, handleSubmitShort, handleSubmitShopping, openFormSelection, handleLongForm, displayLongList, displayShortList, displayShoppingList, closeModalLong, handleShortForm, closeModalShort, handleShoppingForm, closeModalShopping } from './modules/listDom';
-import { longListModule, shortListModule, shoppingListModule } from './modules/listArrays';
+import { openFormSelection } from './modules/Dom';
+import { longListModule, shortListModule, shoppingListModule } from './modules/Arrays';
+import { handleSubmitLong, handleLongForm, closeModalLong, displayLongList } from './modules/DomLongList'; 
+import { handleSubmitShort, handleShortForm, closeModalShort, displayShortList } from './modules/DomShortList';
+import { handleSubmitShopping, handleShoppingForm, closeModalShopping, displayShoppingList } from './modules/DomShopping';
 
 const longSubmit = document.getElementById('longSubmit').addEventListener('click', handleSubmitLong);
 const shortSubmit = document.getElementById('shortSubmit').addEventListener('click', handleSubmitShort);

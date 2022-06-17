@@ -1,4 +1,6 @@
-import { displayLongList, displayShortList, displayShoppingList } from "./listDom";
+import { displayLongList } from "./DomLongList";
+import { displayShortList } from "./DomShortList";
+import { displayShoppingList } from "./DomShopping";
 
 export const longListModule = (function() {
   const _longList = [{title: 'prepare portfolio', desc: 'Start making designs for possible portfolio layouts.', priority: 'high', date: '2022-08-24'}, {title: 'take telc b2 exam', desc: 'Prepare for b2 exam: including booking exam and gathering and going through mock exams.', priority: 'high', date: '2022-09-01'}];
@@ -20,6 +22,14 @@ export const longListModule = (function() {
     displayLongList();
   } 
 
+  const longListEdit = (index, item) => {
+    console.log(index);
+    console.log(item);
+    _longList[index] = item;
+    localStorage.removeItem("longListArray");
+    localStorage.setItem("longListArray", JSON.stringify(longListGet()));
+  }
+
   const checkLocal = () => {
     if (localStorage.hasOwnProperty('longListArray') == true) {
       const localArray = JSON.parse(localStorage.getItem('longListArray'));
@@ -31,6 +41,7 @@ export const longListModule = (function() {
     longListSet: longListSet,
     longListGet: longListGet,
     longListRemove: longListRemove,
+    longListEdit: longListEdit,
     checkLocal: checkLocal
   }
 })();
@@ -55,6 +66,12 @@ export const shortListModule = (function() {
     displayShortList();
   }
 
+  const shortListEdit = (index, item) => {
+    _shortList[index] = item;
+    localStorage.removeItem("shortListArray");
+    localStorage.setItem("shortListArray", JSON.stringify(shortListGet()));
+  }
+
   const checkLocal = () => {
     if (localStorage.hasOwnProperty('shortListArray') == true) {
       const localArray = JSON.parse(localStorage.getItem('shortListArray'));
@@ -66,6 +83,7 @@ export const shortListModule = (function() {
     shortListSet: shortListSet,
     shortListGet: shortListGet,
     shortListRemove: shortListRemove,
+    shortListEdit: shortListEdit,
     checkLocal: checkLocal
   }
 })();

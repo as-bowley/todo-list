@@ -254,6 +254,9 @@ body {
       background-color: #a6bad4;
     }
   }
+  #id-holder {
+    visibility: hidden;
+  }
 }
 
 #shoppingform {
@@ -321,6 +324,7 @@ body {
     text-decoration: underline;
     margin-bottom: 5px;
     margin-top: 5px;
+    cursor: pointer;
   }
   .list-item-radio {
     grid-area: radio;
@@ -367,7 +371,7 @@ body {
     margin-bottom: 3px;
     letter-spacing: 0.09em;
     font-size: 11px;
-    width: 29ch;
+    width: 30ch;
   }
   .list-item-delete {
     grid-area: delete;
