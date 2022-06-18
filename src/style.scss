@@ -13,6 +13,8 @@ body {
   grid-template-areas: 
   "navbar header"
   "navbar main-content";
+  max-height: 100vh;
+  max-width: 100vw;
 }
 
 .navbar {
@@ -56,6 +58,7 @@ body {
       justify-content: space-around;
       width: 280px;
       height: 60px;
+      background-color: white;
       border-radius: 10px;
       font-size: 26px;
       font-weight: 400;
@@ -88,22 +91,29 @@ body {
 .header {
   grid-area: header;
   background-color: #616C7C;
+  max-height: 70px;
 }
 
 #listContainer {
   grid-area: main-content;
-  min-width: 100vh;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 400px);
   gap: 50px;
   justify-content: center;
-  padding: 100px;
+  padding-top: 50px;
+  height: 100%;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+
   #longListContainer {
-    height: 100%;
-    width: 100%;
+    height: 900px;
+    width: 400px;
     background-color: #e3e3e5;
     display: grid;
-    grid-template-rows: 2fr 9fr;
+    grid-template-rows: 1fr 9fr;
     .listTitle {
       background-color: #3E5C76;
       padding: 30px;
@@ -116,15 +126,22 @@ body {
           margin-bottom: 10px;
         }
       }
+      #long-title-bottom {
+        height: 20px;
+      }
+    }
+    #longdisplay {
+      height: 100%;
+      width: 100%;
     }
   }
 
   #shortListContainer {
-    height: 100%;
+    height: 900px;
     width: 100%;
     background-color: #e3e3e5;
     display: grid;
-    grid-template-rows: 2fr 9fr;
+    grid-template-rows: 1fr 9fr;
     .listTitle {
       background-color: #748CAB;
       padding: 30px;
@@ -137,15 +154,19 @@ body {
           margin-bottom: 10px;
         }
       }
+      #short-title-bottom {
+        height: 20px;
+      }
     }
   }
 
   #shoppingListContainer {
-    height: 100%;
+    height: 900px;
     width: 100%;
     background-color: #e3e3e5;
     display: grid;
-    grid-template-rows: 2fr 9fr;
+    grid-template-rows: 1fr 9fr;
+    max-height: 100%;
     .listTitle {
       background-color: #B76D68;
       padding: 30px;
@@ -157,6 +178,9 @@ body {
           font-weight: 400;
           margin-bottom: 10px;
         }
+      }
+      #shopping-title-bottom {
+        height: 20px;
       }
     }
   }
@@ -181,6 +205,8 @@ body {
   input {
     width: 100%;
     height: 30px;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
     margin-bottom: 20px;
     padding: 0 8px;
     border: 1px solid rgba(254,254,254,.3);
@@ -197,6 +223,7 @@ body {
     padding: 0 8px;
     border: 1px solid rgba(254,254,254,.3);
     border-radius: 5px;
+    
   }
   button {
     width: 100%;
@@ -215,6 +242,7 @@ body {
   #longDescForm {
     height: 200px;
     width: 100%;
+    font-family: 'Montserrat', sans-serif;
     margin-bottom: 20px;
     padding: 0 8px;
     border: 1px solid rgba(254,254,254,.3);
@@ -246,6 +274,7 @@ body {
   input {
     width: 100%;
     height: 30px;
+    font-family: 'Montserrat', sans-serif;
     margin-bottom: 20px;
     padding: 0 8px;
     border: 1px solid rgba(254,254,254,.3);
@@ -283,6 +312,7 @@ body {
   #shortDescForm {
     height: 200px;
     width: 100%;
+    font-family: 'Montserrat', sans-serif;
     margin-bottom: 20px;
     padding: 0 8px;
     border: 1px solid rgba(254,254,254,.3);
@@ -346,8 +376,8 @@ body {
   font-size: 12px;
   height: 180px;
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 1fr 1fr 0.5fr;;
+  grid-template-columns: 30px 240px 1fr;
+    grid-template-rows: 45px 1fr 35px;
   grid-template-areas: 
   "radio main priority"
   ". desc ."
@@ -357,9 +387,9 @@ body {
     grid-area: main;
     font-size: 18px;
     font-weight: 700;
-    text-decoration: underline;
     margin-bottom: 5px;
     margin-top: 5px;
+    letter-spacing: 0.04em;
     cursor: pointer;
   }
   .list-item-radio {
@@ -369,9 +399,10 @@ body {
   }
   .list-item-desc {
     grid-area: desc;
+    letter-spacing: 0.09em;
     align-self: baseline;
     font-weight: 400;
-    line-height: 13px;
+    line-height: 14px;
     font-size: 13px;
     margin-top: 0;
   }
@@ -386,20 +417,23 @@ body {
       font-weight: 700;
     }
     .list-item-prio-div.high-priority {
-      background-color: #FA9F9F;
+      background-color: #d87860;
+      color: white;
     }
     .list-item-prio-div.medium-priority {
-      background-color: #FDF9A3;
+      background-color: #f0c048;
+      color: white;
     }
     .list-item-prio-div.low-priority {
-      background-color: #DDFDCD;
+      background-color: #78c090;
+      color: white;
     }
   }
   .list-item-date {
     grid-area: date;
-    background-color: #C9D9F2;
-    color: #3E5C76;
-    font-weight: 600;
+    background-color: #3E5C76;
+    color: #ffffff;
+    font-weight: 500;
     line-height: 13px;
     padding: 5px;
     margin-right: 10px;
@@ -471,12 +505,13 @@ body {
   transform-origin: bottom;
   transition: transform 0.3s ease-in-out 0.2s;
   z-index: 9;
-  bottom: 8%;
-  left: 0.7%;
+  bottom: 9%;
+  left: 0.8%;
   button {
     min-width: 280px;
+    background-color: white;
     border: none;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 600;
     padding: 20px;
     margin: 5px;
