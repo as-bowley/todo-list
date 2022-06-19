@@ -40,6 +40,7 @@ export function handleSubmitLong() {
 
     const newListItem = new TodoListLong(longTitle, longDescription, longPriority, longDate);
     longListModule.longListSet(newListItem);
+    console.log(longDate);
     displayLongList();
     resetFormLong();
     handleLongForm();
@@ -61,7 +62,7 @@ export function displayLongList() {
   
   for (let i = 0; i < list.length; i++) {
     const formattedDate = format(parseISO(list[i].date), "MMMM do y");
-
+    console.log(formattedDate);
     const longListDiv = document.createElement('div');
     longListDiv.classList.add('longListItem');
 
