@@ -22,6 +22,11 @@
   "homepage": "https://github.com/as-bowley/todo-list#readme",
   "devDependencies": {
     "css-loader": "^6.7.1",
+    "eslint": "^8.18.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.3",
+    "eslint-plugin-promise": "^6.0.0",
     "html-webpack-plugin": "^5.5.0",
     "sass": "^1.52.3",
     "sass-loader": "^13.0.0",

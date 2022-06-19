@@ -3,8 +3,7 @@ import { shoppingListModule } from "./Arrays";
 import { closeFormSelection } from "./Dom";
 
 export function handleSubmitShopping() {
-
-  const shoppingTitle = document.getElementById('shoppingTitleForm').value;
+  const shoppingTitle = document.getElementById("shoppingTitleForm").value;
 
   const newListItem = new ShoppingList(shoppingTitle);
   shoppingListModule.shoppingListSet(newListItem);
@@ -14,68 +13,66 @@ export function handleSubmitShopping() {
 }
 
 function resetFormShopping() {
-  const shoppingTitle = document.getElementById('shoppingTitleForm').value = '';
+  const shoppingTitle = (document.getElementById("shoppingTitleForm").value =
+    "");
 }
 
 export function displayShoppingList() {
-
-  const displayDiv = document.getElementById('shoppingdisplay');
+  const displayDiv = document.getElementById("shoppingdisplay");
   const list = shoppingListModule.shoppingListGet();
-  displayDiv.innerHTML = '';
-  
-  for (let i = 0; i < list.length; i++) {
-    const shoppingListDiv = document.createElement('div');
-    shoppingListDiv.classList.add('shoppingListItem');
+  displayDiv.innerHTML = "";
 
-    const title = document.createElement('h4');
-    title.classList.add('list-item-title');
+  for (let i = 0; i < list.length; i++) {
+    const shoppingListDiv = document.createElement("div");
+    shoppingListDiv.classList.add("shoppingListItem");
+
+    const title = document.createElement("h4");
+    title.classList.add("list-item-title");
     title.innerText = `${list[i].item}`;
-    const radio = document.createElement('input');
-    radio.setAttribute('type', 'radio');
-    radio.setAttribute('id', i);
-    radio.addEventListener('click', function(e) {
-      if(this.classList.contains('complete')) {
-        radio.classList.remove('complete');
-        this.parentNode.classList.remove('complete');
+    const radio = document.createElement("input");
+    radio.setAttribute("type", "radio");
+    radio.setAttribute("id", i);
+    radio.addEventListener("click", function (e) {
+      if (this.classList.contains("complete")) {
+        radio.classList.remove("complete");
+        this.parentNode.classList.remove("complete");
         this.checked = false;
+      } else {
+        radio.classList.add("complete");
+        this.parentNode.classList.add("complete");
       }
-      else {
-        radio.classList.add('complete');
-        this.parentNode.classList.add('complete');
-        }
     });
-    const deleteButton = document.createElement('button');
-    deleteButton.setAttribute('id', i);
-    deleteButton.addEventListener('click', function() {
+    const deleteButton = document.createElement("button");
+    deleteButton.setAttribute("id", i);
+    deleteButton.addEventListener("click", function () {
       shoppingListModule.shoppingListRemove(this.id);
-    })
+    });
 
     shoppingListDiv.appendChild(radio);
     shoppingListDiv.appendChild(title);
     shoppingListDiv.appendChild(deleteButton);
-    
 
     displayDiv.appendChild(shoppingListDiv);
   }
 }
 
 export function handleShoppingForm() {
-  const shoppingTermForm = document.querySelector('#shoppingform');
-  const overlay = document.querySelector('#overlay');
+  const shoppingTermForm = document.querySelector("#shoppingform");
+  const overlay = document.querySelector("#overlay");
 
-  if (shoppingTermForm.classList.contains('activeShoppingForm')) {
-    shoppingTermForm.classList.remove('activeShoppingForm');
+  if (shoppingTermForm.classList.contains("activeShoppingForm")) {
+    shoppingTermForm.classList.remove("activeShoppingForm");
     closeModalShopping();
   } else {
-    shoppingTermForm.classList.add('activeShoppingForm');
-    overlay.classList.add('activeOverlay');
+    shoppingTermForm.classList.add("activeShoppingForm");
+    overlay.classList.add("activeOverlay");
     closeFormSelection();
   }
 }
 
 export function closeModalShopping() {
-  const overlay = document.querySelector('#overlay');
-  const shoppingTermForm = document.querySelector('#shoppingform');
-  shoppingTermForm.classList.remove('activeShoppingForm');
-  overlay.classList.remove('activeOverlay');
+  const overlay = document.querySelector("#overlay");
+  const shoppingTermForm = document.querySelector("#shoppingform");
+  shoppingTermForm.classList.remove("activeShoppingForm");
+  overlay.classList.remove("activeOverlay");
 }

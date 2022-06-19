@@ -5,6 +5,7 @@ export class TodoListLong {
     this.priority = priority;
     this.date = date;
   }
+
   listDetails() {
     return this;
   }
@@ -17,6 +18,7 @@ export class TodoListShort {
     this.priority = priority;
     this.date = date;
   }
+
   listDetails() {
     return this;
   }
@@ -26,6 +28,7 @@ export class ShoppingList {
   constructor(item) {
     this.item = item;
   }
+
   listDetails() {
     return this;
   }
