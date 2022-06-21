@@ -46,9 +46,27 @@ export function handleSubmitLong() {
     );
     longListModule.longListSet(newListItem);
     displayLongList();
+    resetLongFormErrors();
     resetFormLong();
     handleLongForm();
   }
+}
+
+function resetLongFormErrors() {
+  const longTitle = document.getElementById("longTitleForm");
+  const longDesc = document.getElementById("longDescForm");
+  const longPriority = document.getElementById("longPriorityForm");
+  const longDate = document.getElementById("longDateForm");
+  const titleParent = longTitle.parentElement;
+  const descParent = longDesc.parentElement;
+  const priorityParent = longPriority.parentElement;
+  const dateParent = longDate.parentElement;
+
+  console.log(titleParent);
+  titleParent.className = "form-control";
+  descParent.className = "form-control";
+  priorityParent.className = "form-control";
+  dateParent.className = "form-control";
 }
 
 function resetFormLong() {
@@ -65,18 +83,16 @@ export function displayLongList() {
   displayDiv.innerHTML = "";
 
   for (let i = 0; i < list.length; i++) {
-    const formattedDate = format(parseISO(list[i].date), "MMMM do y");
     const longListDiv = document.createElement("div");
     longListDiv.classList.add("longListItem");
 
     const title = document.createElement("h4");
     title.classList.add("list-item-title");
     title.addEventListener("click", function () {
-      if (longTermFormButton.classList.contains("editMode") == false) {
+      if (longTermFormButton.classList.contains("editMode") === false) {
         const index = this.parentNode.querySelector(".list-item-radio").id;
         longTermFormButton.classList.add("editMode");
         editLongForm(index);
-      } else {
       }
     });
     title.innerText = `${list[i].title}`;
@@ -102,9 +118,9 @@ export function displayLongList() {
     priority.classList.add("list-item-prio");
     const priorityDiv = document.createElement("div");
     priorityDiv.classList.add("list-item-prio-div");
-    if (list[i].priority == "high") {
+    if (list[i].priority === "high") {
       priorityDiv.classList.add("high-priority");
-    } else if (list[i].priority == "medium") {
+    } else if (list[i].priority === "medium") {
       priorityDiv.classList.add("medium-priority");
     } else {
       priorityDiv.classList.add("low-priority");
@@ -114,7 +130,7 @@ export function displayLongList() {
 
     const date = document.createElement("p");
     date.classList.add("list-item-date");
-    date.innerText = `target date: ${formattedDate}`;
+    date.innerText = `target date: ${list[i].date}`;
     const deleteButton = document.createElement("button");
     deleteButton.setAttribute("id", i);
     deleteButton.classList.add("list-item-delete");

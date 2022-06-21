@@ -8,25 +8,52 @@
   <script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script></head>
   <body>
     <div id="overlay"></div>
-    <div id="longform">
-      <label for="longTitleForm">title</label>
-      <input type="text" name="title" id="longTitleForm" />
-      <br />
-      <label for="longDescForm">description</label>
-      <textarea type="text" name="desc" id="longDescForm"></textarea>
-      <br />
-      <label for="longPriorityForm">priority</label>
-      <select name="priority" id="longPriorityForm">
-        <option value="high">high</option>
-        <option value="medium">medium</option>
-        <option value="low">low</option>
-      </select>
-      <br />
-      <label for="longDateForm">date</label>
-      <input type="date" name="date" id="longDateForm" />
-      <div class="id-holder"></div>
-      <button id="longSubmit">submit</button>
-    </div>
+    <form id="long-form">
+      <div id="longform">
+        <div class="header">
+          <h2>Add new Long Term Item</h2>
+        </div>
+        <form class="form" id="form">
+          <div class="form-control">
+            <label for="longTitleForm">Title *</label>
+            <input
+              type="text"
+              placeholder="Enter your title here"
+              id="longTitleForm"
+            />
+            <small>Error Message</small>
+          </div>
+
+          <div class="form-control">
+            <label for="desc">Description *</label>
+            <textarea
+              type="text"
+              placeholder="Enter your description here"
+              id="longDescForm"
+            ></textarea>
+            <small>Error Message</small>
+          </div>
+
+          <div class="form-control">
+            <label for="longPriorityForm">Priority *</label>
+            <select name="priority" id="longPriorityForm">
+              <option value="high">high</option>
+              <option value="medium">medium</option>
+              <option value="low">low</option>
+            </select>
+            <small>Error Message</small>
+          </div>
+
+          <div class="form-control">
+            <label for="longDateForm">Date *</label>
+            <input type="date" name="date" id="longDateForm" />
+            <div class="id-holder"></div>
+            <small>Error Message</small>
+          </div>
+          <button id="longSubmit">Submit</button>
+        </form>
+      </div>
+    </form>
     <div id="shortform">
       <label for="shortTitleForm">title</label>
       <input type="text" name="title" id="shortTitleForm" />

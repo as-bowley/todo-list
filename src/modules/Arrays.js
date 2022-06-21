@@ -99,8 +99,9 @@ export const shortListModule = (function () {
   };
 
   const checkLocal = () => {
-    if (localStorage.hasOwnProperty("shortListArray") == true) {
+    if (localStorage.hasOwnProperty("shortListArray") === true) {
       const localArray = JSON.parse(localStorage.getItem("shortListArray"));
+      console.log(localArray[0].date);
       _shortList.splice(0, _shortList.length, ...localArray);
     }
   };
