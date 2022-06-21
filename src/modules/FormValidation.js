@@ -1,31 +1,116 @@
-const longform = document.getElementById("long-form");
+import { handleSubmitLong } from "./DomLongList";
+import { handleSubmitShort } from "./DomShortList";
+
+const longFormElement = document.getElementById("long-form");
 const longTitle = document.getElementById("longTitleForm");
-const longDescription = document.getElementById("longDescForm");
+const longDesc = document.getElementById("longDescForm");
 const longPriority = document.getElementById("longPriorityForm");
 const longDate = document.getElementById("longDateForm");
-const errorDisplay = document.getElementById("error-display");
 
-longform.addEventListener("click", (e) => {
-  const messages = [];
+const shortFormElement = document.getElementById("short-form");
+const shortTitle = document.getElementById("shortTitleForm");
+const shortDesc = document.getElementById("shortDescForm");
+const shortPriority = document.getElementById("shortPriorityForm");
+const shortDate = document.getElementById("shortDateForm");
 
-  if (longTitle === "" || longTitle == null) {
-    messages.push("Title is required");
-  }
-
-  if (longDescription === "" || longDescription == null) {
-    messages.push("A description is required");
-  }
-
-  if (longPriority === "" || longPriority == null) {
-    messages.push("A priority is required");
-  }
-
-  if (longDate === "" || longDate == null) {
-    messages.push("A date is required");
-  }
-
-  if (messages.length > 0) {
-    e.preventDefault();
-    errorDisplay.innerText = messages.join(", ");
-  }
+longFormElement.addEventListener("submit", (e) => {
+  e.preventDefault();
+  checkInputsLong();
 });
+
+shortFormElement.addEventListener("submit", (e) => {
+  e.preventDefault();
+  checkInputsShort();
+});
+
+export function checkInputsLong() {
+  const titleValue = longTitle.value.trim();
+  const descriptionValue = longDesc.value.trim();
+  const priorityValue = longPriority.value.trim();
+  const dateValue = longDate.value.trim();
+
+  if (titleValue === "") {
+    setErrorFor(longTitle, "Title cannot be blank");
+  } else {
+    setSuccessFor(longTitle);
+  }
+
+  if (descriptionValue === "") {
+    setErrorFor(longDesc, "Description cannot be blank");
+  } else {
+    setSuccessFor(longDesc);
+  }
+
+  if (priorityValue === "") {
+    setErrorFor(longPriority, "Please select a priority");
+  } else {
+    setSuccessFor(longPriority);
+  }
+
+  if (dateValue === "") {
+    setErrorFor(longDate, "Please select a date");
+  } else {
+    setSuccessFor(longDate);
+  }
+
+  if (
+    titleValue !== "" &&
+    descriptionValue !== "" &&
+    priorityValue !== "" &&
+    dateValue !== ""
+  ) {
+    handleSubmitLong();
+  }
+}
+
+export function checkInputsShort() {
+  const titleValue = shortTitle.value.trim();
+  const descriptionValue = shortDesc.value.trim();
+  const priorityValue = shortPriority.value.trim();
+  const dateValue = shortDate.value.trim();
+
+  if (titleValue === "") {
+    setErrorFor(shortTitle, "Title cannot be blank");
+  } else {
+    setSuccessFor(shortTitle);
+  }
+
+  if (descriptionValue === "") {
+    setErrorFor(shortDesc, "Description cannot be blank");
+  } else {
+    setSuccessFor(shortDesc);
+  }
+
+  if (priorityValue === "") {
+    setErrorFor(shortPriority, "Please select a priority");
+  } else {
+    setSuccessFor(shortPriority);
+  }
+
+  if (dateValue === "") {
+    setErrorFor(shortDate, "Please select a date");
+  } else {
+    setSuccessFor(shortDate);
+  }
+
+  if (
+    titleValue !== "" &&
+    descriptionValue !== "" &&
+    priorityValue !== "" &&
+    dateValue !== ""
+  ) {
+    handleSubmitShort();
+  }
+}
+
+function setErrorFor(input, message) {
+  const formControl = input.parentElement;
+  const small = formControl.querySelector("small");
+  formControl.className = "form-control error";
+  small.innerText = message;
+}
+
+function setSuccessFor(input) {
+  const formControl = input.parentElement;
+  formControl.className = "form-control success";
+}

@@ -54,27 +54,55 @@
         </form>
       </div>
     </form>
-    <div id="shortform">
-      <label for="shortTitleForm">title</label>
-      <input type="text" name="title" id="shortTitleForm" />
-      <br />
-      <label for="shortDescForm">description</label>
-      <textarea type="text" name="desc" id="shortDescForm"></textarea>
-      <br />
-      <label for="shortPriorityForm">priority</label>
-      <select name="priority" id="shortPriorityForm">
-        <option value="high">high</option>
-        <option value="medium">medium</option>
-        <option value="low">low</option>
-      </select>
-      <br />
-      <label for="shortDateForm">date</label>
-      <input type="date" name="date" id="shortDateForm" />
-      <button id="shortSubmit">submit</button>
-    </div>
+    <form class="form" id="short-form">
+      <div id="shortform">
+        <div class="header">
+          <h2>Add new Short Term Item</h2>
+          <h5>*All fields are required</h5>
+        </div>
+
+        <div class="form-control">
+          <label for="shortTitleForm">Title *</label>
+          <input
+            type="text"
+            placeholder="Enter your title here"
+            id="shortTitleForm"
+          />
+          <small>Error Message</small>
+        </div>
+
+        <div class="form-control">
+          <label for="desc">Description *</label>
+          <textarea
+            type="text"
+            placeholder="Enter your description here"
+            id="shortDescForm"
+          ></textarea>
+          <small>Error Message</small>
+        </div>
+
+        <div class="form-control">
+          <label for="shortPriorityForm">Priority *</label>
+          <select name="priority" id="shortPriorityForm">
+            <option value="high">high</option>
+            <option value="medium">medium</option>
+            <option value="low">low</option>
+          </select>
+          <small>Error Message</small>
+        </div>
+
+        <div class="form-control">
+          <label for="shortDateForm">Date *</label>
+          <input type="date" name="date" id="shortDateForm" />
+          <div class="id-holder"></div>
+          <small>Error Message</small>
+        </div>
+        <button id="shortSubmit">Submit</button>
+      </div>
+    </form>
     <div id="shoppingform">
       <label for="shoppingTitleForm">item</label>
-      <input type="text" name="title" id="shoppingTitleForm" />
+      <input type="text" name="title" id="shoppingTitleForm" required />
       <br />
       <div class="id-holder"></div>
       <button id="shoppingSubmit">submit</button>
